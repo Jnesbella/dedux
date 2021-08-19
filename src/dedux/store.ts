@@ -25,6 +25,8 @@ class Store {
       throw new Error('{ type: string } is required for dispatch');
     this.state = this.reducer(this.state, action);
     this.subscribers.map(subscriber => subscriber(this.state));
+
+    return this.state;
   }
 
   subscribe(subscriber: DeduxStoreSubscriber): DeduxStoreUnsubscriber {

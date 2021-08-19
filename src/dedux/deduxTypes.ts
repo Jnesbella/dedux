@@ -18,8 +18,13 @@ interface DeduxStore {
   dispatch: DeduxStoreDispatch;
 }
 
+interface DeduxMiddlewareOptions {
+  getState: () => DeduxState;
+  dispatch: DeduxStoreDispatch;
+}
+
 type DeduxMiddleware = (
-  store: DeduxStore
+  options: DeduxMiddlewareOptions
 ) => (next: DeduxStoreDispatch) => DeduxStoreDispatch;
 
 export {
@@ -30,4 +35,6 @@ export {
   DeduxStoreSubscriber,
   DeduxStoreUnsubscriber,
   DeduxMiddleware,
+  DeduxStoreDispatch,
+  DeduxMiddlewareOptions,
 };

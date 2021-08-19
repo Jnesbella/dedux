@@ -1,3 +1,5 @@
+import fp from 'lodash/fp';
+
 import Store from './store';
 import {
   DeduxReducer,
@@ -16,20 +18,21 @@ function createStore(
 
 function applyMiddleware(store: DeduxStore, allMiddleware: DeduxMiddleware[]) {
   const dispatch = store.dispatch.bind(store);
+  const getState = store.getState.bind(store);
 
   const dispatchWithMiddleware = (
     middlewareArr: DeduxMiddleware[] | undefined
   ) => (action: DeduxAction) => {
-    if (!middlewareArr || middlewareArr.length === 0) return dispatch(action);
+    const middlewareFunc = fp.first(middlewareArr);
+    if (!middlewareArr || !middlewareFunc) return dispatch(action);
 
-    const middlewareFunc = middlewareArr.shift();
-    if (!middlewareFunc) return dispatch(action);
-
-    const next = dispatchWithMiddleware(middlewareArr);
-    middlewareFunc(store)(next)(action);
+    const next = dispatchWithMiddleware(
+      fp.slice(1, middlewareArr.length)(middlewareArr)
+    );
+    middlewareFunc({ getState, dispatch })(next)(action);
   };
 
-  store.dispatch = dispatchWithMiddleware(allMiddleware);
+  store.dispatch = dispatchWithMiddleware([...allMiddleware]).bind(store);
 }
 
 export default {

@@ -18,6 +18,8 @@ class Counter {
     handleClick(this.getResetButton(), resetCounter());
 
     store.subscribe((state: CounterState) => this.render(state));
+
+    this.render(store.getState());
   }
 
   getUpButton() {

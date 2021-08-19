@@ -32,7 +32,7 @@ The counter example will launch automatically in your default browser, but if it
 
 - Dedux is hooked up to the elements in `counter.html`
 - The counter reflects the value stored in your Dedux state
-- Clicking the up button increases the counter
-- Clicking the down button decreases the counter
-- Clicking the reset button sets the counter to zero
-- **Bonus**: add a middleware to your store which will persist the latest count to localstorage and set up your initial state to use this value
+- Clicking the up button increases the counter (pressing the up arrow will have the same effect)
+- Clicking the down button decreases the counter (pressing the down arrow will have the same effect)
+- Clicking the reset button sets the counter to zero (pressing the escape key will have the same effect)
+- **Bonus**: The counter value will persist between reloads thanks to a localstorage middleware

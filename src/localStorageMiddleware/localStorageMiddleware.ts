@@ -16,7 +16,8 @@ const getLocalStorageItem = (
   localStorageKey: string,
   defaultValue: any = ''
 ) => {
-  return JSON.parse(localStorage.getItem(localStorageKey) ?? defaultValue);
+  const item = localStorage.getItem(localStorageKey);
+  return item ? JSON.parse(item) : defaultValue;
 };
 
 const localStorageMiddleware = (

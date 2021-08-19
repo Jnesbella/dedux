@@ -13,7 +13,7 @@ class Store {
 
   constructor(reducer: DeduxReducer, initialState?: DeduxState) {
     this.reducer = reducer;
-    this.state = this.reducer(initialState);
+    this.state = this.reducer(initialState) ?? initialState;
   }
 
   getState(): DeduxState {

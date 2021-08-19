@@ -15,7 +15,7 @@ const { createStore } = Dedux;
 
 const sut = () => createStore(counterReducer);
 
-describe.skip('counter', () => {
+describe('counter', () => {
   it('initializes to the initial state', () => {
     const store = sut();
 

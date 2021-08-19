@@ -1,6 +1,6 @@
-# Implementing Redux
+# Dedux
 
-You'll be building a clone of Redux -- in this case, dedux -- in the service of a simple counter app.
+A simple clone of Redux with a basic counter app to demonstrate functionality.
 
 ## Install dependencies
 
@@ -16,22 +16,23 @@ Start the tests with:
 > yarn test --watch
 ```
 
-Read through the [test cases](implementing-redux/__tests__/tests.spec.js) and implement the required logic in `implementing-redux/index.js`
+Read through the [dedux test cases](src/__tests__/tests.spec.js) for implemented logic in `src/dedux`.
 
-## Wire it all up
+Read through the [counter test cases](src/__tests__/counter.spec.js) for implemented logic in `src/counter`.
+
+## Run the example
 
 From the root of the project run
 
 ```bash
-> npx tsc-bundle .\tsconfig.json
-> npx serve
+> yarn serve
 ```
 
-Then go to `http://localhost:5000/implementing-redux/counter` in your address bar. In the file `implementing-redux/counter.js`, see if you can do the following:
+The example will launch automatically in your default browser, but if it doesn't navigate to `http://localhost:8080` in your address bar. Observe the following:
 
-- hook up your implementation of Dedux to the elements in `counter.html`
-- have the counter reflect a value stored in your Dedux state
-- when the up button is pushed, the counter should increase
-- when the down button is pushed, the counter should decrease
-- when the reset button is pushed, the counter should reset to zero
+- Dedux is hooked up to the elements in `counter.html`
+- The counter reflects the value stored in your Dedux state
+- Clicking the up button increases the counter
+- Clicking the down button decreases the counter
+- Clicking the reset button sets the counter to zero
 - **Bonus**: add a middleware to your store which will persist the latest count to localstorage and set up your initial state to use this value

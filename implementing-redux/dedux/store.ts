@@ -11,9 +11,9 @@ class Store {
   reducer: DeduxReducer;
   subscribers: DeduxStoreSubscriber[] = [];
 
-  constructor(reducer: DeduxReducer) {
+  constructor(reducer: DeduxReducer, initialState?: DeduxState) {
     this.reducer = reducer;
-    this.state = this.reducer();
+    this.state = this.reducer(initialState);
   }
 
   getState(): DeduxState {

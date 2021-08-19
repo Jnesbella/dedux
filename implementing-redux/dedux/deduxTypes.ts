@@ -10,11 +10,17 @@ type DeduxStoreSubscriber = (state: DeduxState) => void;
 
 type DeduxStoreUnsubscriber = () => void;
 
+type DeduxStoreDispatch = (action: DeduxAction) => void;
+
 interface DeduxStore {
   getState: () => DeduxState;
   subscribe: (subscriber: DeduxStoreSubscriber) => DeduxStoreUnsubscriber;
-  dispatch: (action: DeduxAction) => void;
+  dispatch: DeduxStoreDispatch;
 }
+
+type DeduxMiddleware = (
+  store: DeduxStore
+) => (next: DeduxStoreDispatch) => DeduxStoreDispatch;
 
 export {
   DeduxState,
@@ -23,4 +29,5 @@ export {
   DeduxStore,
   DeduxStoreSubscriber,
   DeduxStoreUnsubscriber,
+  DeduxMiddleware,
 };

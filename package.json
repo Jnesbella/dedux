@@ -2,7 +2,7 @@
   "name": "interview_exercises",
   "version": "1.0.0",
   "description": "A collection of coding exercises to be used for interviews",
-  "main": "index.js",
+  "private": true,
   "author": "Justin Foss <jfoss124@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -10,7 +10,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.3",
+    "@babel/helper-compilation-targets": "^7.15.0",
     "@babel/preset-env": "^7.8.3",
+    "@babel/preset-typescript": "^7.15.0",
     "@types/jest": "^24.9.1",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^25.1.0",
@@ -18,6 +20,8 @@
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-prettier": "^3.1.2",
     "jest": "^25.1.0",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "typescript": "^4.3.5",
+    "typescript-bundle": "^1.0.17"
   }
 }

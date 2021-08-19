@@ -23,6 +23,7 @@ Read through the [test cases](implementing-redux/__tests__/tests.spec.js) and im
 From the root of the project run
 
 ```bash
+> npx tsc-bundle .\tsconfig.json
 > npx serve
 ```
 

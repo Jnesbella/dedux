@@ -13,9 +13,22 @@ class Counter {
       element?.addEventListener('click', () => store.dispatch(action));
     };
 
+    const handleKeydown = (key: string, action: DeduxAction) => {
+      document.addEventListener('keydown', event => {
+        if (event.key === key) {
+          store.dispatch(action);
+        }
+      });
+    };
+
     handleClick(this.getUpButton(), incrementCounter());
+    handleKeydown('ArrowUp', incrementCounter());
+
     handleClick(this.getDownButton(), decrementCounter());
+    handleKeydown('ArrowDown', decrementCounter());
+
     handleClick(this.getResetButton(), resetCounter());
+    handleKeydown('Escape', resetCounter());
 
     store.subscribe((state: CounterState) => this.render(state));
 

@@ -1,8 +1,8 @@
 type DeduxState = any;
 
-interface DeduxAction {
+type DeduxAction = Record<string, any> & {
   type: string;
-}
+};
 
 type DeduxReducer = (state?: DeduxState, action?: DeduxAction) => DeduxState;
 

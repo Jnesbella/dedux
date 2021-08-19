@@ -13,9 +13,9 @@ class Counter {
       element?.addEventListener('click', () => store.dispatch(action));
     };
 
-    handleClick(this.getUpButton(), incrementCounter);
-    handleClick(this.getDownButton(), decrementCounter);
-    handleClick(this.getResetButton(), resetCounter);
+    handleClick(this.getUpButton(), incrementCounter());
+    handleClick(this.getDownButton(), decrementCounter());
+    handleClick(this.getResetButton(), resetCounter());
 
     store.subscribe((state: CounterState) => this.render(state));
   }

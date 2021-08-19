@@ -1,5 +1,4 @@
 import Dedux from '../dedux';
-import { counterReducer, incrementCounter } from '../counter';
 
 const { createStore, applyMiddleware } = Dedux;
 
@@ -40,15 +39,25 @@ describe('dedux', () => {
 
       it(`dispatch should take any dispatched action and run it
           through the reducer function to produce a new state.`, () => {
-        const reducer = counterReducer;
+        const reducer = (state = { foo: 'bar' }, action) => {
+          if (!action) return state;
+
+          switch (action.type) {
+            case 'BAZIFY':
+              return { foo: 'baz' };
+
+            default:
+              return state;
+          }
+        };
 
         const store = createStore(reducer);
 
-        expect(store.getState()).toBe(0);
+        expect(store.getState().foo).toBe('bar');
 
-        store.dispatch(incrementCounter);
+        store.dispatch({ type: 'BAZIFY' });
 
-        expect(store.getState()).toBe(1);
+        expect(store.getState().foo).toBe('baz');
       });
     });
 

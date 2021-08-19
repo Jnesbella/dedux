@@ -3,10 +3,10 @@ import { DeduxAction } from '../dedux';
 import { COUNTER_ACTION } from './counterActions';
 import { CounterState } from './counterTypes';
 
-const initialState: CounterState = 0;
+const INITIAL_STATE: CounterState = 0;
 
 function counterReducer(
-  state: CounterState = initialState,
+  state: CounterState = INITIAL_STATE,
   action?: DeduxAction
 ) {
   switch (action?.type) {
@@ -17,7 +17,7 @@ function counterReducer(
       return state - 1;
 
     case COUNTER_ACTION.RESET:
-      return initialState;
+      return INITIAL_STATE;
 
     default:
       return state;
@@ -25,3 +25,4 @@ function counterReducer(
 }
 
 export default counterReducer;
+export { INITIAL_STATE };

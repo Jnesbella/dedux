@@ -4,16 +4,16 @@ const COUNTER_ACTION = {
   RESET: 'reset',
 };
 
-const incrementCounter = {
+const incrementCounter = () => ({
   type: COUNTER_ACTION.INCREMENT,
-};
+});
 
-const decrementCounter = {
+const decrementCounter = () => ({
   type: COUNTER_ACTION.DECREMENT,
-};
+});
 
-const resetCounter = {
+const resetCounter = () => ({
   type: COUNTER_ACTION.RESET,
-};
+});
 
 export { COUNTER_ACTION, incrementCounter, decrementCounter, resetCounter };

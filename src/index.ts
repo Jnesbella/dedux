@@ -1,5 +1,5 @@
 import Dedux from './dedux';
-import Counter, { counterReducer } from './counter';
+import Counter, { counterReducer, INITIAL_STATE } from './counter';
 import {
   makeLocalStorageMiddleware,
   getLocalStorageItem,
@@ -13,7 +13,7 @@ const COUNTER_LOCAL_STORAGE_KEY = 'counter';
 
 const store = createStore(
   counterReducer,
-  getLocalStorageItem(COUNTER_LOCAL_STORAGE_KEY)
+  getLocalStorageItem(COUNTER_LOCAL_STORAGE_KEY, INITIAL_STATE)
 );
 applyMiddleware(store, [makeLocalStorageMiddleware(COUNTER_LOCAL_STORAGE_KEY)]);
 new Counter(store);

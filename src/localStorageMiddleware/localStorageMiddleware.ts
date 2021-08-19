@@ -12,8 +12,11 @@ const setLocalStorageItem = (
   localStorage.setItem(localStorageKey, JSON.stringify(nextValue));
 };
 
-const getLocalStorageItem = (localStorageKey: string) => {
-  return JSON.parse(localStorage.getItem(localStorageKey) ?? '');
+const getLocalStorageItem = (
+  localStorageKey: string,
+  defaultValue: any = ''
+) => {
+  return JSON.parse(localStorage.getItem(localStorageKey) ?? defaultValue);
 };
 
 const localStorageMiddleware = (

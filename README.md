@@ -28,7 +28,7 @@ From the root of the project run
 > yarn serve
 ```
 
-The example will launch automatically in your default browser, but if it doesn't navigate to `http://localhost:8080` in your address bar. Observe the following:
+The counter example will launch automatically in your default browser, but if it doesn't navigate to `http://localhost:8080` in your address bar. Observe the following:
 
 - Dedux is hooked up to the elements in `counter.html`
 - The counter reflects the value stored in your Dedux state

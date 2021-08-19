@@ -1,0 +1,17 @@
+body {
+  background: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid gray;
+  border-radius: 3px;
+  padding: 0 1em;
+  background: white;
+}
